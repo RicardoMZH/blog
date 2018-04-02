@@ -148,7 +148,7 @@ ul {
     list-style: none;
     display: block;
 }
-li {
+#top-menu-archives li {
     position: relative;
     display: block;
     float: left;
