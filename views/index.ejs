@@ -1,0 +1,32 @@
+<%include header%>
+<%include sidebar%>
+
+                <div id="blog-div">
+                    <% articles.forEach(function(article){ %>
+
+                    <div class="myarticle">
+                        <div class="article-title">
+                            <a href=<%= '/blog/' + article.blog_name %>><%= article.blog_title %></a>
+                        </div>
+                        <div class="article-view">
+                            <%- article.blog_preview %>
+                            <a class="article-info-link" href=<%= '/blog/' + article.blog_name %>>阅读全文→</a>
+                        </div>
+                        <div class="article-foot">
+                            <span><a href=<%= '/archive/' + article.blog_archive %>><i class="fas fa-book"></i><%= article.blog_archive %></a></span>
+                            <span><i class="fas fa-clock"></i><time><%= article.blog_post_date.substr(0,10) %></time></span>
+                            <span><a href='/about-me'><i class="fas fa-user"></i><%= article.blog_author %></a></span>
+                            <span><i class="fas fa-eye"></i><%= article.blog_view_count %> Hits</span>
+                            <span><i class="fas fa-tags"></i>
+                            <% for (var i = 0; i <= article['blog_tag'].length - 2; i++) { %>
+                            <a href=<%= '/tag/' + article['blog_tag'][i] %>><%= article['blog_tag'][i]%></a>
+                            ，
+                            <% }; %>
+                            <a href=<%= '/tag/' + article['blog_tag'][i] %>><%= article['blog_tag'][i] %></a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <% }); %>
+
+<%include footer%>

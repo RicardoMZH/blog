@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="/picture/Mylogo.ico" media="screen">
+        <script type="text/javascript" src="/js/jquery-3.3.1.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/js/index.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="/css/fontawesome-all.css">
+        <link rel="stylesheet" href="/css/bootstrap-reboot.css">
+        <script src='/js/nprogress.js'></script>
+        <link rel='stylesheet' href='/css/nprogress.css'>
+
+        <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
+        <script src='/js/jquery.fancybox.js'></script>
+
+        <link rel="stylesheet" href="/css/mycss.css">
+        <link href="https://fonts.cat.net/css?family=Alegreya|Lobster+Two|Monda|PT+Serif" rel="stylesheet">
+
+
+        <title><%= blog_info['blog_title'] %></title>
+    </head>
+    <body>
+
+        <div id="top-div">
+            <div id="top-menu">
+                <a id="top-menu-logo" href="/">
+                        <img src="/picture/cube-small.gif" id="title-logo" alt="title-logo">
+                        <div id="title-link">
+                            <div id="main-title-link"><%= blog_info['blog_title'] %></div>
+                            <div id="sub-title-link"><%= blog_info['sub_blog_title'] %></div>
+                        </div>
+                </a>
+                <div id="top-menu-archives">
+                    <ul>
+                        <% archives.forEach(function(archive){ %>
+                        <li><a class="archives-link" href=<%= '/archive/' + archive.blog_archive %>><%= archive.blog_archive %></a></li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <div id="top-menu-tools">
+                    <div class="user-link right"><a id="search" class="archives-link fas fa-search right" href="javascript:;"></a></div>
+                    <form role="search" method="post" id="searchform-top" action="/searchresult">
+                        <input type="text" name="searchtext" id="s-top" placeholder="搜一搜 (ゝω·)☆" autocomplete="off">
+                    </form>
+                    <div class="user-link-div right" id="user-link-div">
+                        <div class="user-link"><a class=" fab fa-twitter" href=<%= blog_info.owner_twitter %>></a></div>
+                        <div class="user-link"><a class="fab fa-github" href=<%= blog_info.owner_github %>></a></div>
+                        <div class="user-link"><a class="fab fa-telegram" href="#"></a></div>
+                    </div>
+                </div>
+                <div id="mobile-top-menu-tools-div">
+                    <div id="mobile-top-menu-tools">
+                        <div id="mobile-top-menu-tools-link">
+                            <div class="user-link"><a class="archives-link fas fa-bars" id="mobile-link" href="javascript:;"></a></div>
+                        <div class="user-link-div" id="mobile-user-link-div">
+                            <div class="user-link"><a class=" fab fa-twitter" href=<%= blog_info.owner_twitter %>></a></div>
+                            <div class="user-link"><a class="fab fa-github" href=<%= blog_info.owner_github %>></a></div>
+                            <div class="user-link"><a class="fab fa-telegram" href="#"></a></div>
+                        </div>
+                        <form role="search" method="post" id="mobile-searchform-top" action="/searchresult">
+                            <input type="text" name="searchtext" id="mobile-s-top" placeholder="搜一搜 (ゝω·)☆" autocomplete="off">
+                        </form>
+                        <div class="user-link"><a id="mobile-search" class="archives-link fas fa-search right" href="javascript:;"></a></div>
+                        </div>
+                        <div id="mobile-top-menu-archives">
+                            <table class="table submenu">
+                                <tbody>
+                                    <% archives.forEach(function(archive){ %>
+                                    <tr><td><a class="submenu-link" href=<%= '/archive/' + archive.blog_archive %>><%= archive.blog_archive %></a></td></tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,22 @@
+<%include header%>
+<%include sidebar%>
+
+
+                <div id="blog-div">
+                    <div class="myarticle">
+                        <div class="article-title">
+                            <%= archive_name %><small>（此分类下共有<%= total %>篇文章）</small>
+                        </div>
+                        <div class="article-view">
+                            <% articles.forEach(function(article){ %>
+                                <a href=<%= '/blog/' + article.blog_name %>>
+                                    <div class="archive-div">
+                                        <time class="archive-time"><%= article.blog_post_date.substr(5,6) %></time>
+                                        <span class="archive-link"><%= article.blog_title %></span>
+                                    </div>
+                                </a>
+                            <% }); %>
+                        </div>
+                    </div>
+
+<%include footer%>

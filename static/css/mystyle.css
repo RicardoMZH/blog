@@ -1,0 +1,522 @@
+/*
+* @Author: RicardoMZH
+* @Date:   2016-09-25 14:36:55
+ * @Last modified by:   RicardoMZH
+ * @Last modified time: 2017-07-19T11:34:41+08:00
+*/
+
+
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+
+/*
+
+    0.  Custom Normalize
+    1.  title-page
+    2.  button
+    3.  menu-bar
+    4.  Article
+    5.  Blog Content
+    6.  Media Queries (Mobile)
+    7.  Animations
+*/
+
+
+/* ==========================================================================
+   0. Custom Normalize
+   ========================================================================== */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    font-family: "YaHei Mono", "汉仪菱心体简";
+    font-size: 16px;
+    min-width: 320px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    text-align: center;
+    text-shadow: .01em .01em .01em rgba(0, 0, 0, .5);
+}
+
+a, a:focus, a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.noselect {
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Chrome/Safari/Opera */
+-khtml-user-select: none; /* Konqueror */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+user-select: none; /* Non-prefixed version, currently
+not supported by any browser */
+}
+
+.clearfix {
+  overflow: visible;
+}
+
+/* ==========================================================================
+   1.  title-page
+   ========================================================================== */
+
+.main-header {
+    font-family: "汉仪菱心体简", "YaHei Mono";
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-origin: content;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("../picture/back.jpg");
+}
+
+.title-name {
+    width: 320px;
+    margin-left: -160px;
+    margin-top: -38px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    display: block;
+    vertical-align: middle;
+    z-index: 10;
+    background-color: rgba(255, 0, 0, 0);
+    -webkit-animation: fade-in-down .6s;
+    animation: fade-in-down .6s;
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+}
+
+#scroll-down {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -160px;
+    bottom: 80px;
+    width: 320px;
+    -webkit-animation: bounce 4s 2s infinite;
+    animation: bounce 4s 2s infinite;
+}
+
+/* ==========================================================================
+    2.  button
+   ========================================================================== */
+
+.button{
+    padding: 0px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-width: 0px;
+    box-shadow: 0px 0px 15px 1px #aaa;
+}
+
+.button:focus, .button.focus, .button:active:focus, .button:active.focus, .button.active:focus, .button.active.focus {
+    outline: none;
+}
+
+/* ==========================================================================
+    3. menu-bar
+   ========================================================================== */
+
+.menu{
+    z-index: 100;
+    width: 60px;
+    height: 100%;
+    position: fixed;
+    right: 2vw;
+    top: 0;
+}
+
+.menu-bar {
+    height: 100%;
+    position: relative;
+}
+
+#about-me{
+    right: 0px;;
+    position: absolute;
+    top: 3vh;
+}
+
+.mylogo{
+    background-image: url("../picture/myphoto.jpg");
+}
+
+.mylogo:hover{
+   animation: blink 2s infinite;
+   -webkit-animation: blink 2s infinite;
+}
+
+.myname{
+   font-family: Nyala;
+   font-weight: bold;
+   left: -25px;
+   background-color: rgba(48, 48, 48, 0.8);
+   width: 110px;
+   height: 24px;
+   transition: .5s;
+   position: relative;
+   /*position: absolute;*/
+   border-radius: 4px;
+   color: #fff;
+}
+
+.button .myname{
+   opacity: 0;
+}
+.button:hover .myname{
+   opacity: 1;
+}
+
+#go-top{
+    font-family: nyala;
+    position: absolute;
+    right: 0px;
+    bottom: 3vh;
+    background-color: rgba(0,0,0,0.25);
+    color: #ddd;
+    box-shadow: none;
+    border: solid;
+    border-width: 3px;
+    border-color: #00c3ff;
+    transition: .3s;
+}
+
+#go-top:hover{
+    border-color: #fdb940;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+#mmm{
+    font-family: nyala;
+    display: block;
+    position: relative;
+    /*position: absolute;*/
+    font-size: 26px;
+    right: 0px;
+    top: 15vh;
+    background-color: rgba(0,0,0,0.25);
+    color: #fff;
+    box-shadow: none;
+    border: solid;
+    border-width: 3px;
+    border-color: #00c3ff;
+    transition: .3s;
+}
+
+/* ==========================================================================
+    4. Article
+   ========================================================================== */
+
+.myarticle{
+    color: #3a4145;
+    text-shadow: .03em .03em .03em #999;
+    margin: 3rem 25vw 0 25vw;
+    width: 50vw;
+    min-height: 20vh;
+}
+
+.myarticle::after{
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: #555 1px solid;
+    position: relative;
+    bottom: 5px;
+    left: 50%;
+    background: #FFF;
+    border-radius: 100%;
+    box-shadow: #FFF 0 0 3px 5px;
+    margin-left: -5px;
+}
+
+.article-title{
+    width: auto;
+    font-size: 40px;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.article-title a{
+    cursor: pointer;
+    transition: .8s;
+    color: #333;
+}
+.article-title a:hover{
+    color: #000;
+}
+
+.article-preview{
+    margin: 1rem 0;
+}
+
+.article-preview img{
+    float: left;
+    border:1px solid #ccc;
+    margin: 1rem 0.5rem;
+    max-width: 20vw;
+}
+
+.article-detail{
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.article-detail a{
+    transition: .8s;
+    color: #333;
+}
+
+.article-detail a:hover{
+    color: #000;
+}
+
+.author-image{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: solid #ddd 1px;
+}
+
+.div-line{
+    letter-spacing: -1px;
+    height: 1px;
+    background-color: #d5dbde;
+    margin-bottom: 1rem;
+    box-shadow: #fff 0 0 5px 1px;
+}
+
+.div-line::before{
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: #d5dbde 1px solid;
+    position: relative;
+    left: -5px;
+    bottom: 5px;
+    background: #FFF;
+    border-radius: 100%;
+    box-shadow: #FFF 0 0 3px 5px;
+}
+
+.div-line::after{
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: #d5dbde 1px solid;
+    position: relative;
+    bottom: 15px;
+    left: 100%;
+    background: #FFF;
+    border-radius: 100%;
+    box-shadow: #FFF 0 0 3px 5px;
+    margin-left: -5px;
+}
+
+.article-foot{
+    display: block;
+    border-bottom: #555 1px solid;
+    margin: 1rem 0 0 0;
+    padding-bottom: 1rem;
+}
+
+.article-foot img{
+    float: left;
+    margin-left: .5rem;
+}
+
+a:nth-child(2){
+    margin-top: .5rem;
+    margin-left: 1rem;
+    float: left;
+}
+
+time:nth-child(3){
+    margin-top: .5rem;
+    padding-left: 1rem;
+    border-left: #d5dbde 1px solid;
+    margin-left: 1rem;
+    float: left;
+}
+a:nth-child(4){
+    margin-top: .5rem;
+    float: right;
+}
+
+.article-line{
+    height: 3px;
+    background-color: #333;
+}
+
+/* ==========================================================================
+    5. Blog Content
+   ========================================================================== */
+
+#blog_content{
+    margin: 5vh 15vw 0 15vw;
+    width: 70vw;
+    /*text-align: center;*/
+}
+
+#blog_content img{
+    /*float: left;*/
+    border:1px solid #ccc;
+    /*margin: 1rem 0.5rem;*/
+    max-width: 60vw;
+
+}
+
+/* ==========================================================================
+    6. Media Queries (Mobile)
+   ========================================================================== */
+
+@media only screen and (max-width: 450px) {
+
+    .title-name {
+        width: 100%;
+        margin: 0px;
+        position: absolute;
+        left: 0px;
+        margin-top: -38px;
+        display: block;
+    }
+
+    .scroll-down {
+        display: block;
+        left: 0px;
+        width: 100%;
+        margin: 0px;
+    }
+
+    .button{
+        width: 40px;
+        height: 40px;
+        box-shadow: 0px 0px 10px 1px #aaa;
+    }
+
+    .menu {
+        width: 40px;
+        right: 5vw;
+        top: 0;
+    }
+
+    .myname{
+        font-size: 10px;
+        left: -13px;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 66px;
+        height: auto;
+    }
+
+    #go-top{
+        font-size: 8px;
+        right: 0px;
+        bottom: 3vh;
+    }
+}
+
+/* ==========================================================================
+    7.  Animations
+   ========================================================================== */
+
+@-webkit-keyframes bounce {
+    0%, 10%, 25%, 40%, 50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    20% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+@keyframes bounce {
+    0%, 10%, 25%, 40%, 50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    20% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+@-webkit-keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0% {
+        box-shadow: 0px 0px 15px 1px #aaa;
+    }
+    50% {
+        box-shadow: 0px 0px 15px 1px #eee;
+    }
+    100% {
+        box-shadow: 0px 0px 15px 1px #aaa;
+    }
+}
+@-webkit-keyframes blink {
+    0% {
+        box-shadow: 0px 0px 15px 1px #eee;
+    }
+    50% {
+        box-shadow: 0px 0px 15px 1px #aaa;
+    }
+    100% {
+        box-shadow: 0px 0px 15px 1px #eee;
+    }
+}

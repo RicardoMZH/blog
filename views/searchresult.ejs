@@ -1,0 +1,30 @@
+<%include header%>
+<%include sidebar%>
+
+                <div id="blog-div">
+                    <div class="myarticle">
+                        <div class="article-title">
+                            <%= searchtext %> <small>的搜索结果：共有<%= articles.length %>篇文章</small>
+                        </div>
+                        <div class="article-view">
+                            <% if (articles.length == 0){ %>
+                            <p>
+                                Sorry~~
+                            </p>
+                                你搜索的东西暂时不存在o~
+                        </div>
+                        <div class="article-foot">
+
+                        </div>
+                            <% } %>
+                            <% articles.forEach(function(article){ %>
+                                <a href=<%= '/blog/' + article.blog_name %>>
+                                    <div class="archive-div">
+                                        <time class="archive-time"><%= article.blog_post_date.substr(0,11) %></time>
+                                        <span class="archive-link"><%= article.blog_title %></span>
+                                    </div>
+                                </a>
+                            <% }); %>
+                        </div>
+                    </div>
+<%include footer%>

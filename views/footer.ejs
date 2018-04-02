@@ -1,0 +1,99 @@
+                    <div id="page-control"<% if(typeof page_num == 'undefined' || page_num == 1){ %>style="display: none;" <% } %>>
+                    <%
+                        function page_control() {
+                            if (typeof page_num == 'undefined') {
+                                return;
+                            }
+                            if(url != '/' && url.split('/')[1] != 'page'){
+                                url = '/' + url.split('/')[1] + '/' + url.split('/',3)[2];
+                            }else {
+                                url = '';
+                            }
+                            if (current > 1) {
+                    %>
+                            <a href=<%= url + '/page/' + (current-1) %> id="last-page" class="page-link "><i class="fas fa-angle-left"></i></a>
+                    <%
+                            }
+                            if (page_num <= 8) {
+                                for(let i = 1;i <= page_num;i++){
+                                    if (i == current) {
+                    %>
+                           <span class="page-link current"><%= current %></span>
+                    <%
+                                    } else {
+                    %>
+                            <a href=<%= url + '/page/' + i %> class="page-link"><%= i %></a>
+                    <%
+                                    }
+                                }
+                            } else {
+                                if (current > 0 && current < 5) {
+                                    for(let i = 0;i < current+2;i++){
+                                        if (i == current) {
+                    %>
+                            <span class="page-link current"><%= current %></span>
+                    <%                  } else {
+                    %>
+                            <a href=<%= url + '/page/' + i %> class="page-link"><%= i %></a>
+                    <%
+                                        }
+                                    }
+                    %>
+                            <span class="page-link">...</span>
+                            <a href=<%= url + '/page/' + page_num %> class="page-link"><%= page_num %></a>
+
+                    <%
+                                } else if (current >= 5 && current < page_num-3){
+                    %>
+                                    <a href=<%= url + '/page/1' %> class="page-link">1</a>
+                                    <span class="page-link">...</span>
+                                    <a href=<%= url + '/page/' + (current-2) %> class="page-link"><%= (current-2) %></a>
+                                    <a href=<%= url + '/page/' + (current-1) %> class="page-link"><%= (current-1) %></a>
+                                    <span class="page-link current"><%= current %></span>
+                                    <a href=<%= url + '/page/' + (++current) %> class="page-link"><%= (current) %></a>
+                                    <a href=<%= url + '/page/' + (++current) %> class="page-link"><%= (current) %></a>
+                                    <span class="page-link">...</span>
+                                    <a href=<%= url + '/page/' + page_num %> class="page-link"><%= page_num %></a>
+                    <%
+                                } else if (current >= page_num-3 && current <= page_num){
+                    %>
+                                    <a href=<%= url + '/page/1' %> class="page-link">1</a>
+                                    <span class="page-link">...</span>
+                    <%
+                                    for(let i = current-2;i <= page_num;i++){
+                                        if (i == current) {
+                    %>
+                                    <span class="page-link current"><%= current %></span>
+                    <%
+                                        } else {
+                    %>
+                                    <a href=<%= url + '/page/' + i %> class="page-link"><%= i %></a>
+                    <%
+                                        }
+                                    }
+
+                                }
+                            }
+                            if (current < page_num) {
+                    %>
+                            <a href=<%= url + '/page/' + (++current) %> id="next-page"  class="page-link"><i class="fas fa-angle-right"></i></a>
+                    <%
+                            }
+                        }
+                        page_control();
+                    %>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div id="go-top" class="go-top-hiddened"><img src="/picture/backTop1.png"></div>
+            </div>
+        </div>
+
+        <div id="bottom-div">
+            <div id="bottom-menu">
+                <p><%= blog_info['blog_footer'] %></p>
+            </div>
+        </div>
+    </body>
+</html>
