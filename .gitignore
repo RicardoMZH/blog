@@ -88,5 +88,5 @@ typings/
 # next.js build output
 .next
 
-data/
+data/*
 package-lock.json
