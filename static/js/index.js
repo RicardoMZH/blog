@@ -71,8 +71,9 @@ function hitokoto_api(all_type) {
         var url = "https://sslapi.hitokoto.cn/?c=" + seed + "&encode=json";
     }
     $.get(url,function(data,status){
-        var hitokoto = $.parseJSON(data);
-        var hitokoto_text = hitokoto['hitokoto'] + "<br> ———— 《" + hitokoto['from'] + "》";
+        // var hitokoto = $.parseJSON(data);
+        // var hitokoto_text = hitokoto['hitokoto'] + "<br> ———— 《" + hitokoto['from'] + "》";
+        var hitokoto_text = data['hitokoto'] + "<br> ———— 《" + data['from'] + "》";
         $("#hitokoto-text").html(hitokoto_text);
         $("#mobile-hitokoto-text").html(hitokoto_text);
     });
@@ -129,7 +130,7 @@ function add_img_alt(argument) {
       }
   })();
 $(document).ready(function(){
-    hitokoto_api(false);
+    hitokoto_api(true);
     change_md_style();
     add_img_alt();
     $("[data-fancybox]").fancybox({
